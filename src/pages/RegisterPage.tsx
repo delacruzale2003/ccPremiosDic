@@ -96,16 +96,21 @@ const RegisterPage = () => {
       const resJson = await res.json();
 
       if (res.ok) {
-        const prizeName = resJson.prize || "Un gran premio!";
-        const finalPhotoUrl = resJson.photoUrl || photoUrl;
+  const prizeName = resJson.prize || "Un gran premio!";
+  const finalPhotoUrl = resJson.photoUrl || photoUrl;
 
-        navigate("/exit", {
-          state: {
-            prizeName,
-            photoUrl: finalPhotoUrl,
-          },
-        });
-      } else {
+  // 🥇 PASO 1: Guardar en localStorage para persistencia
+  localStorage.setItem("prizeName", prizeName);
+  localStorage.setItem("photoUrl", finalPhotoUrl);
+
+  // 🥈 PASO 2: Navegar con el state (para la primera carga limpia)
+  navigate("/exit", {
+    state: {
+      prizeName,
+      photoUrl: finalPhotoUrl,
+    },
+  });
+} else {
         setMessage(`❌ ${resJson.message || "Error en el registro"}`);
       }
     } catch (err) {
