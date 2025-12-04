@@ -141,8 +141,8 @@ const RegisterPage: React.FC = () => {
                                 </div>
                             )}
                             {compressedFile && !compressing && (
-                                <p className="absolute bottom-0 right-0 text-xs bg-green-600 text-white p-1 rounded-tl-lg">
-                                    {`Comprimido: ${(compressedFile.size / 1024).toFixed(1)} KB`}
+                                <p className="absolute bottom-0 right-0 text-xs bg-gray-800 text-white p-1 rounded-tl-lg">
+                                    {`${(compressedFile.size / 1024).toFixed(1)} KB`}
                                 </p>
                             )}
                         </div>
