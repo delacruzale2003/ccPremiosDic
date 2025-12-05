@@ -61,7 +61,7 @@ const RegisterPage: React.FC = () => {
                 <h2 className="text-start font-mont-extrabold text-white text-lg mb-4">Llena tus datos y participa por fabulosos premios</h2>
                 
                 {/* ID de Tienda Oculto */}
-                <p className="text-sm text-center font-mont-extrabold text-white/80">Tienda ID: {storeId.substring(0, 8)}...</p>
+                
 
                 {/* Mensaje de Error/Éxito */}
                 {message && (
