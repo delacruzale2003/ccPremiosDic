@@ -29,11 +29,14 @@ const RegisterPage: React.FC = () => {
         </div>;
     }
 
-    // El fondo rojo y animado ahora lo maneja BackgroundCC
+    // 💡 Lógica de validación centralizada
+    const isFormValid = name.trim() !== '' && phoneNumber.trim() !== '' && dni.trim() !== '' && compressedFile;
+    const isDisabled = loading || compressing || !isFormValid;
+
     return (
-        // Contenedor principal. Se elimina el color de fondo y queda como contenedor del contenido.
-        // Se añade 'relative' para asegurar el contexto de apilamiento sobre el fondo fijo.
-        <div className="min-h-screen flex flex-col items-center justify-center p-4 relative">
+        // Contenedor principal. Se asegura un padding-bottom grande para que el contenido
+        // no quede oculto bajo el footer fijo.
+        <div className="min-h-screen flex flex-col items-center justify-start p-4 pb-28 relative">
             
             {/* Componente de Fondo Animado: Establece el color #e30613 y las decoraciones */}
             <BackgroundCC /> 
@@ -84,9 +87,10 @@ const RegisterPage: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Campo DNI */}
+                {/* Campo DNI (AHORA OBLIGATORIO) */}
                 <div className="">
-                    <label className="block text-white text-md font-medium font-mont-extrabold mt-2">DNI / Cédula (Opcional)</label>
+                    {/* 💡 CORRECCIÓN 1: DNI ya no es opcional en la etiqueta */}
+                    <label className="block text-white text-md font-medium font-mont-extrabold mt-2">DNI</label>
                     <div className="relative">
                         <Scan className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                         <input
@@ -95,6 +99,7 @@ const RegisterPage: React.FC = () => {
                             value={dni}
                             onChange={(e) => setDni(e.target.value)}
                             maxLength={11}
+                            required // 💡 CORRECCIÓN 1: Se añade required al input
                             // Input transparente con borde blanco
                             className="bg-transparent border-3 border-white p-3 w-full rounded-full text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors pl-10 shadow-inner"
                         />
@@ -151,16 +156,20 @@ const RegisterPage: React.FC = () => {
 
             </form>
 
-            {/* Botón ENVIAR: ROJO, FUERA DEL FORMULARIO PERO VINCULADO */}
-            <button
-                type="submit"
-                form="registrationForm" // <-- Vincula el botón al formulario por ID
-                disabled={loading || compressing || !compressedFile || name.trim() === '' || phoneNumber.trim() === ''}
-                // CORREGIDO: Usamos w-full para asegurar que llene el ancho disponible en móvil.
-                className="bg-red-800 font-betterwith rounded-full text-4xl text-white p-3 w-50 max-w-md font-semibold hover:bg-red-900 transition-colors duration-200 disabled:opacity-50 shadow-xl z-10" 
-            >
-                {loading ? "ENVIANDO..." : "ENVIAR"}
-            </button>
+            {/* BARRA FIJA INFERIOR PARA EL BOTÓN EN MÓVIL */}
+            <div className="fixed bottom-0 left-0 right-0 p-4 bg-red-600 border-red-500 border shadow-2xl z-20">
+                <button
+                    type="submit"
+                    form="registrationForm" // <-- Vincula el botón al formulario por ID
+                    disabled={isDisabled} 
+                    // 💡 CORRECCIÓN DE ESTILO: 
+                    // Base es NEGRO (activo). Disabled sobreescribe la base con Rojo-800 y texto apagado.
+                    className="bg-black font-betterwith rounded-full text-4xl sm:text-2xl text-white p-3 w-full max-w-md font-semibold transition-colors duration-200 shadow-xl mx-auto block
+                               disabled:bg-red-800 disabled:text-white/60 disabled:opacity-100 hover:bg-gray-200 hover:text-gray-900" 
+                >
+                    {loading ? "ENVIANDO..." : "ENVIAR"}
+                </button>
+            </div>
         </div>
     );
 };
