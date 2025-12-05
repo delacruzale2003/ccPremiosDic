@@ -50,6 +50,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Markpro';
+  src: url('./assets/Mark Pro.ttf') format('truetype');
+  font-weight: 200; /* Puedes ajustar el peso si lo conoces */
+  font-style: normal;
+  font-display: swap;
+}
+
 /* =======================================
    2. Clases de Utilidad Personalizadas
    ======================================= */
@@ -79,7 +87,10 @@
   font-family: 'BetterWith-Narrow', sans-serif;
   font-weight: 400;
 }
-
+.font-markpro {
+  font-family: 'Markpro', sans-serif;
+  font-weight: 400;
+}
 /* =======================================
    3. Definición de la Animación (RESTAURADA)
    ======================================= */

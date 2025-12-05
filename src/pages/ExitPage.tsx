@@ -73,7 +73,7 @@ const ExitPage = () => {
     return (
         // 💡 CORRECCIÓN 2: Deshabilita pull-to-refresh en el móvil.
         // La clase `overscroll-y-none` previene el comportamiento de actualización del navegador.
-        <div className="min-h-screen flex items-center text-center justify-center bg-red-500 p-4 overscroll-y-none">
+        <div className="min-h-screen flex items-center text-center justify-center bg-[#e30613] p-4 overscroll-y-none">
             
             <div className="bg-transparent  rounded-2xl p-8 w-full max-w-md space-y-1  text-center mx-auto">
                 
