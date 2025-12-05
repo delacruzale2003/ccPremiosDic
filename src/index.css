@@ -45,7 +45,7 @@
 @font-face {
   font-family: 'BetterWith-Narrow';
   src: url('./assets/BetterWith-Narrow.ttf') format('truetype');
-  font-weight: 400; /* Puedes ajustar el peso si lo conoces */
+  font-weight: 200; /* Puedes ajustar el peso si lo conoces */
   font-style: normal;
   font-display: swap;
 }
@@ -77,7 +77,7 @@
 
 .font-betterwith {
   font-family: 'BetterWith-Narrow', sans-serif;
-  font-weight: 800;
+  font-weight: 400;
 }
 
 /* =======================================

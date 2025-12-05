@@ -117,7 +117,7 @@ export const useRegistration = (): RegistrationHook => {
 
             if (!uploadRes.ok) {
                 const errorText = await uploadRes.text();
-                throw new Error(`Error en la subida al PHP: ${uploadRes.status} - ${errorText}`);
+                throw new Error(`Error en la subida : ${uploadRes.status} - ${errorText}`);
             }
 
             const uploadJson = await uploadRes.json();
