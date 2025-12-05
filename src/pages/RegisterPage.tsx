@@ -105,7 +105,7 @@ const RegisterPage: React.FC = () => {
                         />
                     </div>
                 </div>
-
+                    
                 {/* Campo Teléfono */}
                 <div className="">
                     <label className="block text-white text-md font-medium font-mont-extrabold mt-2">Número de teléfono</label>
