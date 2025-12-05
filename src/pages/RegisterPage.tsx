@@ -157,15 +157,15 @@ const RegisterPage: React.FC = () => {
             </form>
 
             {/* BARRA FIJA INFERIOR PARA EL BOTÓN EN MÓVIL */}
-            <div className="fixed bottom-0 left-0 right-0 p-4 bg-red-600 border-red-500 border shadow-2xl z-20">
+            <div className="fixed bottom-0 left-0 right-0 p-4 bg-transparent  z-20">
                 <button
                     type="submit"
                     form="registrationForm" // <-- Vincula el botón al formulario por ID
                     disabled={isDisabled} 
                     // 💡 CORRECCIÓN DE ESTILO: 
                     // Base es NEGRO (activo). Disabled sobreescribe la base con Rojo-800 y texto apagado.
-                    className="bg-black font-betterwith rounded-full text-4xl sm:text-2xl text-white p-3 w-full max-w-md font-semibold transition-colors duration-200 shadow-xl mx-auto block
-                               disabled:bg-red-800 disabled:text-white/60 disabled:opacity-100 hover:bg-gray-200 hover:text-gray-900" 
+                    className="bg-red-800 font-betterwith rounded-full text-4xl sm:text-2xl text-white p-3 w-full max-w-md font-semibold transition-colors duration-200 shadow-xl mx-auto block
+                               disabled:bg-red-800 disabled:text-white/60 disabled:opacity-0 hover:bg-gray-200 hover:text-gray-900" 
                 >
                     {loading ? "ENVIANDO..." : "ENVIAR"}
                 </button>
