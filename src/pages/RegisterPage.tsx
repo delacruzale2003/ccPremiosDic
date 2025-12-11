@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"; // 💡 Importamos useState y useEffect
+import React, { useState } from "react"; // 💡 Importamos useState y useEffect
 import { useRegistration } from "../hooks/useRegistration"; 
 import { User, Phone, Scan, Loader2, X } from 'lucide-react'; // 💡 Importamos X para el botón de cerrar
 import BackgroundCC from "../components/BackgroundCC"; 
